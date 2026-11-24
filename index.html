@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> LogiTrans Express - Iniciar sesión</title>
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+    <main class="login-container">
+        <form name="login-form" class="login-form">
+            <h1>LogiTrans Express</h1>
+            <p class="subtitulo">Control de rutas y transporte de carga</p>
+
+            <div class="campo">
+                <label for="login"> Usuario o correo</label>
+                <input type="text" id="login" name="login" placeholder="admin" required />
+            </div>
+
+            <div class="campo">
+                <label for="contraseña">Contraseña</label>
+                <input type="password" id="contraseña" name="contraseña" placeholder="••••••" required />
+            </div>
+
+            <button type="submit">Iniciar sesión</button>
+            <p id="msg-error" class="msg-error hidden"></p>
+        </form>
+    </main>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
