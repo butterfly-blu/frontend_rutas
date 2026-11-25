@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LogiTrans Express - Inicio</title>
+  </head>
+  <body>
+    <h1>Bienvenido, <span id="nombre-usuario"></span></h1>
+    <p>Sesión iniciada correctamente.</p>
+
+    <script>
+      const token = localStorage.getItem("token");
+      if (!token) {
+        window.location.href = "index.html";
+      } else {
+        const usuario = JSON.parse(localStorage.getItem("usuario"));
+        document.getElementById("nombre-usuario").textContent = usuario.nombre;
+      }
+    </script>
+  </body>
+</html>
