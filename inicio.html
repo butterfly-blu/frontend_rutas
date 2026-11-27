@@ -4,19 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LogiTrans Express - Inicio</title>
+    <link rel="stylesheet" href="css/inicio.css" />
   </head>
   <body>
-    <h1>Bienvenido, <span id="nombre-usuario"></span></h1>
-    <p>Sesión iniciada correctamente.</p>
+   <header class="barra">
+      <h1>LogiTrans Express</h1>
+      <div class="usuario">
+        <span id="nombre-usuario"></span>
+        <span id="rol-usuario" class="rol"></span>
+        <button id="logout-btn">Cerrar sesión</button>
+      </div>
+    </header>
 
-    <script>
-      const token = localStorage.getItem("token");
-      if (!token) {
-        window.location.href = "index.html";
-      } else {
-        const usuario = JSON.parse(localStorage.getItem("usuario"));
-        document.getElementById("nombre-usuario").textContent = usuario.nombre;
-      }
-    </script>
+    <nav class="menu">
+      <a href="#" class="activo">Inicio</a>
+      <a href="#">Conductores</a>
+      <a href="#">Vehículos</a>
+      <a href="#">Rutas</a>
+      <a href="#">Programación</a>
+      <a href="#">Viajes</a>
+    </nav>
+
+    <main class="contenido">
+      <h2>Bienvenido</h2>
+      <p>Seleccione un módulo del menú para comenzar.</p>
+    </main>
+
+    <div id="msg-content" class="msg hidden"><p></p></div>
+
+    <script src="js/services/auth_services.js"></script>
+    <script src="js/inicio.js"></script>
   </body>
 </html>

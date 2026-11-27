@@ -19,3 +19,40 @@ const loginService = async (login, contrasena, callbacks) => {
     callbacks.error("No se pudo conectar con el servidor de autenticación");
   }
 };
+
+const validarSesionService = async (token, callbacks) => {
+  try {
+    const response = await fetch(AUTH_URL + "/validar", {
+      headers: { Authorization: "Bearer " + token },
+    });
+    const data = await response.json();
+
+    if (response.status === 200) {
+      callbacks.success(data);
+    } else {
+      callbacks.error(data.message);
+    }
+  } catch (exception) {
+    console.error(exception);
+    callbacks.error("No se pudo conectar con el servidor de autenticación");
+  }
+};
+
+const logoutService = async (token, callbacks) => {
+  try {
+    const response = await fetch(AUTH_URL + "/logout", {
+      method: "POST",
+      headers: { Authorization: "Bearer " + token },
+    });
+    const data = await response.json();
+
+    if (response.status === 200) {
+      callbacks.success(data);
+    } else {
+      callbacks.error(data.message);
+    }
+  } catch (exception) {
+    console.error(exception);
+    callbacks.error("No se pudo conectar con el servidor de autenticación");
+  }
+};
